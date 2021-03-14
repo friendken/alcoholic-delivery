@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><?php appName(); ?></title>
+  <title>Alcoholic – Wine Shop and Liquor Store</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
   <!-- For Profile Assets -->
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
   <!-- Custom Assets -->
-  <link href="<?php echo FRONTEND_ASSET . 'css/profile.css'; ?>">
-  <script src="<?php echo FRONTEND_ASSET . 'js/profile.js'; ?>"></script>
-
-  <style>
-  .fakeimg {
-      height: 200px;
-      background: #aaa;
-  }
-  </style>
+  <link href="<?php echo FRONTEND_ASSET . 'css/main.css'; ?>">
+  <link href="<?php echo FRONTEND_ASSET . 'css/elegant-icon.css'; ?>">
+  <link href="<?php echo FRONTEND_ASSET . 'css/liner-icon.css'; ?>">
+  <link href="<?php echo FRONTEND_ASSET . 'css/slick.css'; ?>">
+  <link href="<?php echo FRONTEND_ASSET . 'css/slick-theme.css'; ?>">
 </head>
 <body>
 

@@ -17,8 +17,9 @@
     <div class="form-group">
       <label for="password_again">Confirm Password :</label>
       <input type="password" class="form-control" id="password_again" placeholder="Confirm your password" name="password_again">
+      <button type="submit">Register me</button>
     </div>
     <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
-    <input type="submit" value="Register me">
+    <button type="submit">Register me</button>
   </form>
 </div>
