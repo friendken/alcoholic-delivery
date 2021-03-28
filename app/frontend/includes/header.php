@@ -9,21 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <!-- Custom Assets -->
-  <link href="<?php echo FRONTEND_ASSET . 'css/main.css'; ?>">
-  <link href="<?php echo FRONTEND_ASSET . 'css/elegant-icon.css'; ?>">
-  <link href="<?php echo FRONTEND_ASSET . 'css/liner-icon.css'; ?>">
-  <link href="<?php echo FRONTEND_ASSET . 'css/slick.css'; ?>">
-  <link href="<?php echo FRONTEND_ASSET . 'css/slick-theme.css'; ?>">
+  <link href="<?php echo FRONTEND_ASSET . 'css/main.css'; ?>" rel="stylesheet">
+  <link href="<?php echo FRONTEND_ASSET . 'css/elegant-icon.css'; ?>" rel="stylesheet">
+  <link href="<?php echo FRONTEND_ASSET . 'css/liner-icon.css'; ?>" rel="stylesheet">
+  <link href="<?php echo FRONTEND_ASSET . 'css/slick.css'; ?>" rel="stylesheet">
+  <link href="<?php echo FRONTEND_ASSET . 'css/slick-theme.css'; ?>" rel="stylesheet">
 </head>
 <body>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>My First <?php appName(); ?></h1>
-  <p>Resize this responsive page to see the effect!</p>
-  <?php if ($user->isLoggedIn()): ?>
-    <h3 align="right">Hello,  <?php echo $user->data()->name;?></h3>
-   <?php endif; ?>
-</div>
 

@@ -1,5 +1,7 @@
 <?php
-require_once 'app/backend/core/Init.php';
+$path = dirname(dirname(__FILE__));
+
+require_once $path.'/core/Init.php';
 
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name')))
 {

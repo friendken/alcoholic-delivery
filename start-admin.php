@@ -1,10 +1,5 @@
 <?php
-  // ini_set('display_errors', 1);
-  // ini_set('display_startup_errors', 1);
-  // error_reporting(E_ALL);
-?>
-<?php
-define('__ROOT__', '');
+define('__ROOT__', '../');
 require_once __ROOT__.'app/backend/core/Init.php';
 
 define('BACKEND_AUTH',  __ROOT__.'app/backend/auth/');
@@ -14,3 +9,4 @@ define('FRONTEND_COMPONENTS', __ROOT__.'app/frontend/components/');
 define('FRONTEND_INCLUDE', __ROOT__.'app/frontend/includes/');
 define('FRONTEND_INCLUDE_ERROR', __ROOT__.'app/frontend/includes/errors/');
 define('FRONTEND_ASSET', __ROOT__.'app/frontend/assets/');
+define('FRONTEND_ADMIN_PAGE', __ROOT__.'app/frontend/pages/admin/');

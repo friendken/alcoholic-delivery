@@ -1,17 +1,15 @@
 <?php
-session_start();
+@session_start();
+$path = dirname(dirname(__FILE__));
 
-require_once 'app/backend/auth/config.php';
-require_once 'app/backend/core/Helpers.php';
+require_once $path.'/auth/config.php';
+require_once 'Helpers.php';
 
 spl_autoload_register("autoload");
 
-require_once 'app/backend/auth/cookie.php';
-require_once 'app/backend/auth/user.php';
-
-
-
-
-
-
-
+require_once $path.'/core/Config.php';
+require_once $path.'/core/Session.php';
+require_once $path.'/core/Cookie.php';
+require_once $path.'/core/Database.php';
+require_once $path.'/classes/User.php';
+require_once $path.'/auth/user.php';

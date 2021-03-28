@@ -7,7 +7,6 @@ class Password
        return password_hash($password, Config::get('password/algo_name'),
             array(
                 'cost' => Config::get('password/cost'),
-                'salt' => Hash::salt()
             ));
     }
 

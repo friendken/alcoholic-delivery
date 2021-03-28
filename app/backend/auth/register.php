@@ -8,13 +8,20 @@ if(Input::exists())
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
-            'name' => array(
+            'email' => array(
                 'required' => true,
                 'min' => 2,
                 'max' => 50
             ),
 
-            'username' => array(
+            'first_name' => array(
+                'required' => true,
+                'min' => 2,
+                'max' => 20,
+                'unique' => 'users'
+            ),
+
+            'last_name' => array(
                 'required' => true,
                 'min' => 2,
                 'max' => 20,
@@ -37,11 +44,11 @@ if(Input::exists())
             try
             {
                 $user->create(array(
-                    'username'  => Input::get('username'),
+                    'email'  => Input::get('email'),
+                    'first_name'  => Input::get('first_name'),
+                    'last_name'  => Input::get('last_name'),
                     'password'  => Password::hash(Input::get('password')),
-                    'name'      => Input::get('name'),
-                    'joined'    => date('Y-m-d H:i:s'),
-                    'groups'    => 1
+                    'role' => 1
                     ));
 
                 Session::flash('register-success', 'Thanks for registering! You can login now.');

@@ -68,6 +68,7 @@ class Database
 
     public function action($action, $table, $where = array())
     {
+        
         if (count($where) === 3)
         {
             $operators  = array('=', '>', '<', '>=', '<=');
@@ -78,6 +79,7 @@ class Database
 
             if (in_array($operator, $operators))
             {
+                // die('here database');
                 $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 
                 if (!$this->query($sql, array($value))->error())
@@ -85,13 +87,20 @@ class Database
                     return $this;
                 }
             }
+        } else if (count($where === 0)) {
+            $sql = "{$action} FROM {$table}";
+
+            if (!$this->query($sql, array($value))->error())
+            {
+                return $this;
+            }
         }
 
         return false;
     }
 
-    public function get($table, $where)
-    {
+    public function get($table, $where = array())
+    {   
         return $this->action('SELECT *', $table, $where);
     }
 

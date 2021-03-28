@@ -21,8 +21,9 @@ class User
             if (Session::exists($this->_sessionName))
             {
                 $user = Session::get($this->_sessionName);
+                // var_dump($user); die('here');
 
-                if ($this->find($user))
+                if ($this->get($user))
                 {
                     $this->_isLoggedIn = true;
                 }
@@ -31,28 +32,7 @@ class User
         }
         else
         {
-            $this->find($user);
-        }
-    }
-
-    public function update($fields = array(), $id = null)
-    {
-        if (!$id && $this->isLoggedIn())
-        {
-            $id = $this->data()->uid;
-        }
-
-        if (!$this->_db->update('users', $id, $fields))
-        {
-            throw new Exception('Unable to update the user.');
-        }
-    }
-
-    public function create($fields = array())
-    {
-        if (!$this->_db->insert('users', $fields))
-        {
-            throw new Exception("Unable to create the user.");
+            $this->get($user);
         }
     }
 
@@ -60,9 +40,42 @@ class User
     {
         if ($user)
         {
-            $field  = (is_numeric($user)) ? 'uid' : 'username';
+            $data = $this->_db->get('user', array('email', '=', $user));
+            // var_dump($data->results()); die;
+            if ($data->count())
+            {
+                $this->_data = $data->first();
+                return true;
+            }
+        }
+    }
 
-            $data = $this->_db->get('users', array($field, '=', $user));
+    public function update($fields = array(), $id = null)
+    {
+        if (!$id && $this->isLoggedIn())
+        {
+            $id = $this->data()->id;
+        }
+
+        if (!$this->_db->update('user', $id, $fields))
+        {
+            throw new Exception('Unable to update the user.');
+        }
+    }
+
+    public function create($fields = array())
+    {   
+        if (!$this->_db->insert('user', $fields))
+        {
+            throw new Exception("Unable to create the user.");
+        }
+    }
+
+    public function get($user = null)
+    {
+        if ($user)
+        {
+            $data = $this->_db->get('user', array('id', '=', $user));
 
             if ($data->count())
             {
@@ -72,31 +85,37 @@ class User
         }
     }
 
-    public function login($username = null, $password = null, $remember = false)
+    public function list()
     {
-        if (! $username && ! $password && $this->exists())
+        return $this->_db->get('user')->results();
+    }
+
+    public function login($email = null, $password = null, $remember = false)
+    {
+        if (! $email && ! $password && $this->exists())
         {
-            Session::put($this->_sessionName, $this->data()->uid);
+            Session::put($this->_sessionName, $this->data()->id);
         }
         else
         {
-            $user = $this->find($username);
-
+            // die($email);
+            $user = $this->find($email);
             if ($user)
             {
+                // var_dump($user); die('here');
                 if (Password::check($password, $this->data()->password))
                 {
-                    Session::put($this->_sessionName, $this->data()->uid);
+                    Session::put($this->_sessionName, $this->data()->id);
 
                     if ($remember)
                     {
                         $hash       = Hash::unique();
-                        $hashCheck  = $this->_db->get('users_session', array('user_id', '=', $this->data()->uid));
+                        $hashCheck  = $this->_db->get('user_session', array('user_id', '=', $this->data()->id));
 
                         if (!$hashCheck->count())
                         {
-                            $this->_db->insert('users_session', array(
-                                'user_id'   => $this->data()->uid,
+                            $this->_db->insert('user_session', array(
+                                'user_id'   => $this->data()->id,
                                 'hash'      => $hash
                             ));
                         }
@@ -140,7 +159,7 @@ class User
 
     public function logout()
     {
-        $this->_db->delete('users_session', array('user_id', '=', $this->data()->uid));
+        $this->_db->delete('user_session', array('user_id', '=', $this->data()->id));
 
         Session::delete($this->_sessionName);
         Cookie::delete($this->_cookieName);
@@ -160,10 +179,10 @@ class User
     {
         if ($this->isLoggedIn())
         {
-            $id = $this->data()->uid;
+            $id = $this->data()->id;
         }
 
-        if (!$this->_db->delete('users', array('uid', '=', $id)))
+        if (!$this->_db->delete('user', array('id', '=', $id)))
         {
             throw new Exception('Unable to update the user.');
         }
