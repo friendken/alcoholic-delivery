@@ -1,5 +1,5 @@
 <?php
 
-$products = new Product();
+$category = new Category();
 
 // var_dump($products->list());

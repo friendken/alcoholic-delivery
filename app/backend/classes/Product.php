@@ -14,12 +14,6 @@ class Product
 
     public function update($fields = array(), $id = null)
     {
-
-        if (!$id && $this->_user->hasPermission())
-        {
-            throw new Exception('Permission is required to update the product.');
-        }
-
         if (!$this->_db->update('product', $id, $fields))
         {
             throw new Exception('Unable to update the product.');
@@ -28,20 +22,15 @@ class Product
 
     public function create($fields = array())
     {
-        if (!$id && $this->_user->hasPermission())
-        {
-          throw new Exception("Permission is required to create the product.");
-        }
-
         if (!$this->_db->insert('product', $fields))
         {
             throw new Exception("Unable to create the user.");
         }
     }
 
-    public function find()
+    public function list()
     {
-        return $this->_db->get('product');
+        return $this->_db->get('product')->results();
     }
 
     public function get($product_id = null)
@@ -65,10 +54,6 @@ class Product
 
     public function delete()
     {
-        if (!$id && $this->_user->hasPermission())
-        {
-          throw new Exception("Permission is required to delete the product.");
-        }
         if (!$this->_db->delete('product', array('id', '=', $id)))
         {
             throw new Exception('Unable to delete the product.');

@@ -87,10 +87,10 @@ class Database
                     return $this;
                 }
             }
-        } else if (count($where === 0)) {
+        } else if (count($where) === 0) {
             $sql = "{$action} FROM {$table}";
 
-            if (!$this->query($sql, array($value))->error())
+            if (!$this->query($sql)->error())
             {
                 return $this;
             }
