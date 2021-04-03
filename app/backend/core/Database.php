@@ -79,7 +79,6 @@ class Database
 
             if (in_array($operator, $operators))
             {
-                // die('here database');
                 $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 
                 if (!$this->query($sql, array($value))->error())
@@ -102,6 +101,21 @@ class Database
     public function get($table, $where = array())
     {   
         return $this->action('SELECT *', $table, $where);
+    }
+
+    public function pagination($table, $page = 1, $page_limit = 10)
+    {   
+        if ($page == 0) {
+            $offset = 1 * $page_limit;
+        } else {
+            $offset = $page * $page_limit;
+        }
+        $sql = "SELECT * FROM {$table} LIMIT {$page},{$offset}";
+        
+        if (!$this->query($sql)->error())
+        {
+            return $this;
+        }
     }
 
     public function delete($table, $where)
@@ -144,7 +158,7 @@ class Database
     {
         $set    = '';
         $x      = 1;
-
+        // var_dump($fields); die;
         foreach ($fields as $name => $value)
         {
             $set .= "{$name} = ?";
@@ -157,8 +171,8 @@ class Database
             $x++;
         }
 
-        $sql = "UPDATE {$table} SET {$set} WHERE uid = {$id}";
-
+        $sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+        // var_dump($sql); die;
         if (!$this->query($sql, $fields)->error())
         {
             return true;

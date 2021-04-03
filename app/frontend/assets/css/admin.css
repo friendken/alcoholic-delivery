@@ -35,3 +35,15 @@
 .sidebar .nav-link.active {
   color: #0d6efd;
 }
+
+#product-table .col-action i:first-child{
+  margin-right: 5px;
+}
+
+#edit-product .toggle-group .btn {
+  /* border: 1px solid #ced4da !important; */
+}
+
+#edit-product .toggle-group .btn-default {
+  background-color: #ced4da !important;
+}

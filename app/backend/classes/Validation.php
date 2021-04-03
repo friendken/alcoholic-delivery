@@ -1,5 +1,6 @@
 <?php
 
+
 class Validation
 {
     private $_passed = false,
@@ -30,12 +31,12 @@ class Validation
 
                 if ($rule === 'required' && empty($value))
                 {
-                    $this->addError("{$item} is required.");
+                    $this->addError($item, "{$item} is required.");
                 }
 
                 if ($rule === 'bind' && empty($value) && ! empty($source[$rule_value]))
                 {
-                    $this->addError("{$item} is required.");
+                    $this->addError($item, "{$item} is required.");
                 }
 
                 else if (!empty($value))
@@ -46,7 +47,7 @@ class Validation
 
                             if (strlen($value) < $rule_value)
                             {
-                                $this->addError("{$item} must be minimum of {$rule_value} character.");
+                                $this->addError($item, "{$item} must be minimum of {$rule_value} character.");
                             }
                             break;
 
@@ -54,7 +55,7 @@ class Validation
 
                             if (strlen($value) > $rule_value)
                             {
-                                $this->addError("{$item} must be maximum of {$rule_value} character.");
+                                $this->addError($item, "{$item} must be maximum of {$rule_value} character.");
                             }
                             break;
 
@@ -62,7 +63,7 @@ class Validation
 
                             if ($value != $source[$rule_value])
                             {
-                                $this->addError("{$rule_value} must match {$item}.");
+                                $this->addError($item, "{$rule_value} must match {$item}.");
                             }
                             break;
 
@@ -70,7 +71,7 @@ class Validation
 
                             if (filter_var($value,FILTER_VALIDATE_EMAIL) !==  $rule_value)
                             {
-                                $this->addError("{$item} must valid email format.");
+                                $this->addError($item, "{$item} must valid email format.");
                             }
                             break;
 
@@ -78,7 +79,7 @@ class Validation
 
                             if (ctype_alnum($value) !==  $rule_value)
                             {
-                                $this->addError("{$item} must alphanumeric.");
+                                $this->addError($item, "{$item} must alphanumeric.");
                             }
                             break;
 
@@ -87,7 +88,7 @@ class Validation
 
                             if ($check->count())
                             {
-                                $this->addError("{$item} already exists.");
+                                $this->addError($item, "{$item} already exists.");
                             }
                             break;
 
@@ -96,7 +97,7 @@ class Validation
 
                             if (! Password::check($value, $this->_user->data()->password))
                             {
-                                $this->addError("Wrong Current Password!.");
+                                $this->addError($item, "Wrong Current Password!.");
                             }
                             break;
                     }
@@ -110,9 +111,9 @@ class Validation
         return $this;
     }
 
-    private function addError($error)
+    private function addError($item, $error)
     {
-        $this->_errors[] = $error;
+        $this->_errors[$item] = $error;
     }
 
     public function errors()

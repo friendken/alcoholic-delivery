@@ -17,7 +17,7 @@
 				</div>
 					<div class="card-body">
 							<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered" id="product-table" width="100%" cellspacing="0">
 											<thead>
 													<tr>
 															<th>Name</th>
@@ -29,16 +29,20 @@
 													</tr>
 											</thead>
 											<tbody>
-											<?php foreach($products as $product): ?>
+											<?php foreach($products->list() as $product): ?>
 													<tr>
 														<td><?php echo $product->name ?></td>
-														<td><?php echo $product->category_label ?></td>
-														<td><?php echo $product->price ?></td>
-														<td><?php echo $product->status ?></td>
+														<td><?php echo $category_map[$product->category_id]->name; ?></td>
+														<td><?php echo $product->currency.' '.$product->price ?></td>
+														<?php if($product->is_active == 1): ?>
+															<td><span class="badge bg-success">Active</span></td>
+														<?php else: ?>
+															<td><span class="badge bg-danger">Inactive</span></td>
+														<?php endif; ?>
 														<td><?php echo $product->created_at ?></td>
-														<td>
-															<i class="bi bi-pencil"></i>	
-															<i class="bi bi-archive"></i>
+														<td class="col-action">
+															<a href="edit-product.php?id=<?php echo $product->id ?>"><i class="bi bi-pencil"></i></a>
+															<i class="bi bi-archive delete-product" data-id="<?php echo $product->id; ?>"></i>
 														</td>
 													</tr>
 											<?php endforeach; ?>

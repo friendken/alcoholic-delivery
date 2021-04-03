@@ -31,6 +31,16 @@ class Category
         return $this->_db->get('category')->results();
     }
 
+    public function map()
+    {
+        $_map = array();
+        $results = $this->_db->get('category')->results();
+        foreach($results as $result) {
+            $_map[$result->id] = $result;
+        }
+        return $_map;
+    }
+
     public function get($category_id = null)
     {
         if ($category_id)
@@ -48,7 +58,6 @@ class Category
     {
         return $this->_data;
     }
-
 
     public function delete()
     {

@@ -12,11 +12,13 @@ class Product
         $this->_user = $user;
     }
 
-    public function update($fields = array(), $id = null)
+    public function update($id = null, $fields = array())
     {
-        if (!$this->_db->update('product', $id, $fields))
+        try {
+            $this->_db->update('product', $id, $fields);
+        } catch(Exception $e)
         {
-            throw new Exception('Unable to update the product.');
+            die($e->getMessage());
         }
     }
 
@@ -31,6 +33,11 @@ class Product
     public function list()
     {
         return $this->_db->get('product')->results();
+    }
+
+    public function pagination($page = 1, $page_limit = 10)
+    {
+        return $this->_db->pagination('product', $page, $page_limit)->results();
     }
 
     public function get($product_id = null)
@@ -52,7 +59,7 @@ class Product
     }
 
 
-    public function delete()
+    public function delete($id)
     {
         if (!$this->_db->delete('product', array('id', '=', $id)))
         {

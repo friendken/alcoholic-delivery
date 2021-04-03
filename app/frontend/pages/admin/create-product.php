@@ -9,10 +9,10 @@
 					<h1 class="h3 mb-0 text-gray-800">New Product</h1>
 				</div>
         <div class="col-md-10 col-lg-6">
-          <form id="new-product" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+          <form id="new-product" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="email" name="name">
+              <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
               <label for="images" class="form-label">Images</label>
-              <input class="form-control" type="file" name="images" id="images" multiple>
+              <input class="form-control" type="file" name="images[]" id="images" multiple>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
