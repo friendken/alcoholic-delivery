@@ -10,9 +10,9 @@
           <div class="modal-holder">
             <div class="m-fields">
               <label class="m-user-name-label required">Email</label>
-              <input type="text" class="m-user-name" name="email" value="">
+              <input type="text" class="m-user-name" name="email" value="" required>
               <label class="m-user-password-label required">Password</label>
-              <input type="password" class="m-user-password" name="password">
+              <input type="password" class="m-user-password" name="password" required>
               <input type="hidden" class="m-user-authentication-type" value="login" name="authentication_type">
               <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
             </div>

@@ -26,14 +26,14 @@
       <div class="header-top__item">
         <div class="widget top-bar-widget">
           <div class="account-widget" style="margin: 0 -6px 0 0">
-            <?php if($user->data()): ?>
+            <?php if($user->isLoggedIn()): ?>
               <div class="dropdown dropdown-account">
                 <a class="btn btn-secondary dropdown-toggle account-widget--opener" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="account-widget--opener-text">Welcome, <?php echo $user->data()->first_name . ' ' . $user->data()->last_name ?></span>
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                   <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
               </div>
@@ -88,7 +88,7 @@
               <span class="menu-arrow"></span>
             </li>
             <li id="shop-menu" class="menu-item menu-item-type-custom">
-              <a href="#" onclick="JavaScript: return false;">
+              <a href="shop.php?page=1">
                 <span class="menu-item-inner">
                   <span class="menu-item-text">Shop</span>
                 </span>
@@ -121,9 +121,9 @@
               <span class="menu-arrow"></span>
             </li>
             <li class="menu-item menu-item-type-custom">
-              <a href="#">
+              <a href="contact.php">
                 <span class="menu-item-inner">
-                  <span class="menu-item-text">Landing</span>
+                  <span class="menu-item-text">Contact</span>
                 </span>
               </a>
             </li>

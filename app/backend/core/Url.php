@@ -6,4 +6,8 @@ $activeMenuMap = array(
   'index.php' => 'dashboard',
 );
 $curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
-$activeMenu = $activeMenuMap[$curPageName];
+$activeMenu = '';
+if (isset($activeMenuMap[$curPageName]))
+{
+  $activeMenu = $activeMenuMap[$curPageName];
+}

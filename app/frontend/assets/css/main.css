@@ -2133,7 +2133,7 @@ div.form-wrap .form-loading {
 
 @media only screen and (min-width: 1025px) {
   .page-grid.layout--template>.page-grid-inner>.grid-item.page-col--9 {
-      width: 70%;
+      width: 75%;
   }
 }
 
@@ -2383,11 +2383,6 @@ body .select2-container--default .select2-results__option {
     transition: color .2s ease-out;
 }
 
-#products-page .w-product-list .w-product-image-inner {
-  height: 95%;
-  width: 92%;
-}
-
 #products-page .w-pagination {
   position: relative;
   display: -webkit-box;
@@ -2457,7 +2452,7 @@ body .select2-container--default .select2-results__option {
 
 @media only screen and (min-width: 1025px) {
   .page-grid.layout--template>.page-grid-inner>.grid-item.page-col--3 {
-    width: 22%;
+    width: 25%;
   }
 }
 

@@ -12,6 +12,7 @@ require_once $path.'/core/Session.php';
 require_once $path.'/core/Cookie.php';
 require_once $path.'/core/Database.php';
 require_once $path.'/core/Redirect.php';
+require_once $path.'/core/Password.php';
 require_once $path.'/core/Url.php';
 require_once $path.'/classes/User.php';
 require_once $path.'/classes/Product.php';

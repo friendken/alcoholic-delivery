@@ -175,6 +175,11 @@ class User
         return $this->_isLoggedIn;
     }
 
+    public function isAdmin()
+    {
+        return $this->_data->role == 2;
+    }
+
     public function deleteMe()
     {
         if ($this->isLoggedIn())

@@ -9,28 +9,18 @@
         <ul id="main-navigation-menu" class="menu">
           <li
             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-276 hide-link menu-item--narrow">
-            <a href="#" onclick="JavaScript: return false;"><span class="menu-item-inner"><span
+            <a href="index.php"><span class="menu-item-inner"><span
                   class="menu-item-text">Home</span></span></a><span class="menu-arrow"></span>
           </li>
           <li
-            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-277 hide-link menu-item--narrow">
-            <a href="#" onclick="JavaScript: return false;"><span class="menu-item-inner"><span
-                  class="menu-item-text">Pages</span></span></a><span class="menu-arrow"></span>
-          </li>
-          <li
-            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-278 hide-link menu-item--wide">
-            <a href="#" onclick="JavaScript: return false;"><span class="menu-item-inner"><span
+            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-277 hide-link menu-item--narrow">
+            <a href="shop.php?page=1" ><span class="menu-item-inner"><span
                   class="menu-item-text">Shop</span></span></a><span class="menu-arrow"></span>
           </li>
           <li
-            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-279 hide-link menu-item--narrow">
-            <a href="#" onclick="JavaScript: return false;"><span class="menu-item-inner"><span
-                  class="menu-item-text">Events</span></span></a><span class="menu-arrow"></span>
-          </li>
-          <li
-            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-280 hide-link menu-item--narrow">
-            <a href="#" onclick="JavaScript: return false;"><span class="menu-item-inner"><span
-                  class="menu-item-text">Blog</span></span></a><span class="menu-arrow"></span>
+            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-279 hide-link menu-item--narrow">
+            <a href="contact.php" ><span class="menu-item-inner"><span
+                  class="menu-item-text">Contact</span></span></a><span class="menu-arrow"></span>
           </li>
         </ul>
       </nav>

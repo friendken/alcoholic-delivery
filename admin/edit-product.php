@@ -1,4 +1,5 @@
 <?php require_once '../start-admin.php'; ?>
+<?php require_once BACKEND_AUTH . 'admin-authentication.php' ?>
 <?php require_once BACKEND_AUTH . 'product.php' ?>
 <?php require_once BACKEND_AUTH . 'edit-product.php' ?>
 <?php require_once BACKEND_AUTH . 'category.php' ?>

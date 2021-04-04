@@ -10,15 +10,15 @@
           <div class="modal-holder">
             <div class="m-fields">
               <label class="m-user-name-label required">Email</label>
-              <input type="text" class="m-user-name" name="email" value="">
+              <input type="text" class="m-user-name" name="email" value="" required>
               <label class="m-user-first-name-label required">First Name</label>
-              <input type="text" class="m-user-first-name" name="first_name" value="">
+              <input type="text" class="m-user-first-name" name="first_name" value="" required>
               <label class="m-user-last-name-label required">Last Name</label>
-              <input type="text" class="m-user-last-name" name="last_name" value="">
+              <input type="text" class="m-user-last-name" name="last_name" value="" required>
               <label class="m-user-password-label required">Password</label>
-              <input type="password" class="m-user-password" name="password">
+              <input type="password" class="m-user-password" name="password" required>
               <label class="m-user-confirm-password-label required">Confirm Password</label>
-              <input type="password" class="m-user-confirm-password" name="password_again">
+              <input type="password" class="m-user-confirm-password" name="password_again" required>
               <input type="hidden" class="m-user-authentication-type" value="register" name="authentication_type">
               <input type="hidden" name="csrf_token" value="<?php echo Token::generate(true); ?>">
             </div>

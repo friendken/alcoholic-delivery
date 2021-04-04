@@ -12,7 +12,7 @@
           <form id="edit-product" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?id='.$product->id; ?>" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="<?php echo $product->name; ?>">
+              <input type="text" class="form-control" id="name" name="name" value="<?php echo $product->name; ?>" required>
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
@@ -20,11 +20,11 @@
             </div>
             <div class="mb-3">
               <label for="price" class="form-label">Price</label>
-              <input class="form-control" name="price" id="price" value="<?php echo $product->price; ?>"/>
+              <input class="form-control" name="price" id="price" required value="<?php echo $product->price; ?>"/>
             </div>
             <div class="mb-3">
               <label for="category" class="form-label">Category</label>
-              <select name="category_id" id="category" class="form-select" aria-label="select category product">
+              <select name="category_id" id="category" class="form-select" aria-label="select category product" required>
                 <option disabled selected>Product category</option>
                 <?php foreach($category->list() as $item): ?>
                   <option <?php if ($product->category_id == $item->id) echo "selected"; ?> value="<?php echo $item->id; ?>"><?php echo $item->name; ?></option>
