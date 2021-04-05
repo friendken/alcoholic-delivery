@@ -60,11 +60,11 @@
             </div>
             <div role="form" class="form-wrap" lang="en-US" dir="ltr">
               <div class="screen-reader-response"></div>
-              <form action="" method="post" class="contact-form" novalidate="novalidate">
+              <form class="contact-form" novalidate="novalidate" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div>
                   <span class="form-control-wrap your-name">
                     <label>Email</label>
-                    <input type="email" name="email" value="<?php echo $data->email; ?>" size="40" class="form-control form-text"
+                    <input type="email" name="email" disabled value="<?php echo $data->email; ?>" size="40" class="form-control form-text"
                       aria-invalid="false" placeholder="Type your email here... *">
                   </span>
                 </div>

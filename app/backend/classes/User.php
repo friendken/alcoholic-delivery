@@ -61,6 +61,7 @@ class User
         {
             throw new Exception('Unable to update the user.');
         }
+        $this->get($id);
     }
 
     public function create($fields = array())
