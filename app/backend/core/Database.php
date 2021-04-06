@@ -108,7 +108,7 @@ class Database
         if ($page == 0) {
             $offset = 1 * $page_limit;
         } else {
-            $offset = $page * $page_limit;
+            $offset = $page_limit;
         }
         $sql = "SELECT * FROM {$table} LIMIT {$page},{$offset}";
         

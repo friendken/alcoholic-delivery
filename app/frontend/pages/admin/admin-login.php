@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="remember" value="on" required>
+            <input type="checkbox" class="form-check-input" id="remember" value="on">
             <label class="form-check-label" for="exampleCheck1">Remember</label>
           </div>
           <button type="submit" class="btn btn-primary">Sign in</button>
