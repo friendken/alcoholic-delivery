@@ -26,7 +26,7 @@ if (Input::exists())
           $remember   = (Input::get('remember') === 'on') ? true : false;
           $login      = $user->login(Input::get('email'), Input::get('password'), $remember);
 
-          if ($login)
+          if ($login && $user->isAdmin())
           {
               Redirect::to('index.php');
           }
