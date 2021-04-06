@@ -76,29 +76,22 @@
             </div>
             <div role="form" class="form-wrap" lang="en-US" dir="ltr">
               <div class="screen-reader-response"></div>
-              <form action="" method="post" class="contact-form" novalidate="novalidate">
-                <div style="display: none;">
-                  <input type="hidden" name="_wpcf7" value="1238">
-                  <input type="hidden" name="_wpcf7_version" value="5.1.7">
-                  <input type="hidden" name="_wpcf7_locale" value="en_US">
-                  <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1238-p1209-o1">
-                  <input type="hidden" name="_wpcf7_container_post" value="1209">
-                </div>
+              <form class="contact-form" novalidate="novalidate" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div>
                   <span class="form-control-wrap your-name">
-                    <input type="text" name="your-name" value="" size="40" class="form-control form-text"
+                    <input type="text" name="name" value="" required size="40" class="form-control form-text"
                       aria-invalid="false" placeholder="Type your name here... *">
                   </span>
                 </div>
                 <div>
                   <span class="form-control-wrap your-email">
-                    <input type="text" name="your-email" value="" size="40" class="form-control form-text"
+                    <input type="text" name="email" value="" required size="40" class="form-control form-text"
                       aria-invalid="false" placeholder="Type your e-mail here... *">
                   </span>
                 </div>
                 <div>
                   <span class="form-control-wrap your-message">
-                    <textarea name="your-message" cols="40" rows="4" class="form-control form-textarea"
+                    <textarea name="message" cols="40" rows="4" required class="form-control form-textarea"
                       aria-invalid="false" placeholder="Type your message here... *"></textarea>
                   </span>
                 </div>
@@ -112,6 +105,7 @@
               </form>
             </div>
             <div class="page_empty_space" style="height: 32px"><span class="page_empty_space_inner"></span></div>
+            <?php echo $success; ?>
           </div>
         </div>
       </div>
