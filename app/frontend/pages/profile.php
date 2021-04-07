@@ -92,6 +92,9 @@
               </form>
             </div>
             <div class="page_empty_space" style="height: 32px"><span class="page_empty_space_inner"></span></div>
+            <?php if(!$user->isAdmin()): ?>
+            <a id="deactivate-user" href="delete-user.php">Deactivate your account</a>
+            <?php endif; ?>
           </div>
         </div>
       </div>

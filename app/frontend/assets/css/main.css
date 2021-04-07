@@ -2803,3 +2803,8 @@ a.ui-button:active,
 .dropdown-account .dropdown-item.active, .dropdown-item:active {
   background-color: unset;
 }
+
+#deactivate-user {
+  color: #c8693a;
+  text-decoration: underline;
+}

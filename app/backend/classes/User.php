@@ -183,14 +183,13 @@ class User
 
     public function deleteMe()
     {
-        if ($this->isLoggedIn())
+        if ($this->isLoggedIn() && !$this->isAdmin())
         {
             $id = $this->data()->id;
-        }
-
-        if (!$this->_db->delete('user', array('id', '=', $id)))
-        {
-            throw new Exception('Unable to update the user.');
+            if (!$this->_db->delete('user', array('id', '=', $id)))
+            {
+                throw new Exception('Unable to update the user.');
+            }
         }
     }
 }
