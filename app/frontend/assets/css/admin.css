@@ -59,3 +59,9 @@
   text-align: center;
   padding-bottom: 30px;
 }
+
+table {
+  border-spacing: 0px;
+  border-collapse: separate;
+  width: 100%;
+}

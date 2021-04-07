@@ -21,7 +21,7 @@
                 <div class="widget widget_core_icon_list_item">
                   <div class="icon-list-item icon--icon-pack" style="margin-bottom: 6px">
                     <p class="e-title">
-                      <a itemprop="url" href="#" target="_self">
+                      <a href="#" target="_self">
                         <span class="e-title-inner">
                           <span class="shortcode icon-holder size--default layout--normal">
                             <span class="lnr lnr-map-marker icon" style="font-size:21px"></span>
@@ -36,7 +36,7 @@
                 <div class="widget widget_core_icon_list_item">
                   <div class="icon-list-item icon--icon-pack" style="margin-bottom: 6px">
                     <p class="e-title">
-                      <a itemprop="url" href="mailto:support@qodeinteractive-themes.com" target="_blank">
+                      <a href="mailto:support@qodeinteractive-themes.com" target="_blank">
                         <span class="e-title-inner">
                           <span class="shortcode icon-holder size--default layout--normal">
                             <span class="lnr lnr-envelope icon" style="font-size:21px"></span>
@@ -50,7 +50,7 @@
                 <div class="widget widget_core_icon_list_item">
                   <div class="icon-list-item icon--icon-pack">
                     <p class="e-title">
-                      <a itemprop="url" href="tel:0012345678904567890%20" target="_blank">
+                      <a href="tel:0012345678904567890%20" target="_blank">
                         <span class="e-title-inner">
                           <span class="shortcode icon-holder size--default layout--normal">
                             <span class="lnr lnr-smartphone icon" style="font-size:21px"></span>

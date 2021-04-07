@@ -19,13 +19,13 @@
               <textarea rows="3" class="form-control" name="description" id="description"></textarea>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Price</label>
+              <label for="price" class="form-label">Price</label>
               <input class="form-control" name="price" id="price" required/>
             </div>
             <div class="mb-3">
               <label for="category" class="form-label">Category</label>
               <select name="category_id" id="category" class="form-select" aria-label="select category product" required>
-                <option disabled selected>Product category</option>
+                <option disabled selected value="">Product category</option>
                 <?php foreach($category->list() as $item): ?>
                   <option value="<?php echo $item->id; ?>"><?php echo $item->name; ?></option>
                 <?php endforeach; ?>

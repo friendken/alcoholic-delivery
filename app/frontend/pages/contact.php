@@ -2,7 +2,7 @@
 <div class="main-page header-standard--right">
   <header class="header-page">
     <div id="header-page-inner">
-      <a itemprop="url" class="header-logo-link" href="#" rel="home">
+      <a class="header-logo-link" href="#" rel="home">
         <img width="80" height="80" src="<?php echo FRONTEND_ASSET . 'images/logo-color.png'?>" class="header-logo-image" alt="logo main">
       </a>
       <nav class="header-navigation" role="navigation" aria-label="Top Menu">
@@ -26,7 +26,7 @@
       </nav>
       <div class="widget-holder">
         <div id="wishlist" class="widget header-left-icon">
-          <a itemprop="url" href="#" target="_self">
+          <a href="#" target="_self">
             <span class="qodef-search-opener-inner wishlist-icon" style="color: rgb(0, 0, 0);">
               <span class="lnr lnr-heart"></span>
             </span>
@@ -35,7 +35,7 @@
         <div class="widget dropdown_cart header-left-icon" data-area="custom-widget">
           <div class="dropdown-cart dropdown-cart--m">
             <div class="dropdown-cart-inner dropdown-cart-inner--m">
-              <a itemprop="url" class="cart-opener" href="#" style="color: rgb(0, 0, 0);">
+              <a class="cart-opener" href="#" style="color: rgb(0, 0, 0);">
                 <span class="opener-icon">
                   <span class="lnr lnr-cart"></span>
                   <span class="opener-count">0</span>
@@ -53,7 +53,7 @@
         <div class="parallax-img-holder" style="opacity: 1;">
           <div class="parallax-img-wrapper" style="transform: translate3d(0px, 42.42%, 0px);">
             <img width="1920" height="1029" src="<?php echo FRONTEND_ASSET . 'images/contact-background.jpg'?>" class="parallax-img" alt="a"
-              sizes="(max-width: 1920px) 100vw, 1920px" style="height: 100%; width: auto; max-width: unset;">
+              style="height: 100%; width: auto; max-width: unset;">
           </div>
         </div>
         <div class="m-content content-grid parallax-content-holder">

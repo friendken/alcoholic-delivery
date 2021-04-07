@@ -63,7 +63,7 @@
           </a>
         </div>
         <div id="wishlist" class="widget header-left-icon icon-hover">
-          <a itemprop="url" href="#" target="_self">
+          <a href="#" target="_self">
             <span class="qodef-search-opener-inner wishlist-icon">
               <span class="lnr lnr-heart"></span>
             </span>
@@ -98,7 +98,7 @@
           </ul>
         </nav>
       </div>
-      <a itemprop="url" class="header-logo-link" href="#" style="height:78px" rel="home">
+      <a class="header-logo-link" href="#" style="height:78px" rel="home">
         <img width="120" height="120" src="<?php echo FRONTEND_ASSET . 'images/logo-white.png'?>" class="header-logo-image" alt="logo main" />
       </a>
       <div class="header-page--right">
@@ -132,7 +132,7 @@
         <div class="widget dropdown_cart icon-hover" data-area="custom-widget">
           <div class="dropdown-cart dropdown-cart--m">
             <div class="dropdown-cart-inner dropdown-cart-inner--m">
-              <a itemprop="url" class="cart-opener" href="#">
+              <a class="cart-opener" href="#">
                 <span class="opener-icon">
                   <span class="lnr lnr-cart"></span>
                   <span class="opener-count">0</span>
@@ -157,9 +157,9 @@
             <div class="page-row">
               <div class="gallery-wrap">
                 <div class="gallery-slide">
-                  <img class="gallery-slide--item" src="<?php echo FRONTEND_ASSET .'/images/h1-slide-1.jpg'?>" />
-                  <img class="gallery-slide--item" src="<?php echo FRONTEND_ASSET .'/images/h1-slide-2.jpg'?>" />
-                  <img class="gallery-slide--item" src="<?php echo FRONTEND_ASSET .'/images/h1-slide-3.jpg'?>" />
+                  <img alt="gallery slider" class="gallery-slide--item" src="<?php echo FRONTEND_ASSET .'/images/h1-slide-1.jpg'?>" />
+                  <img alt="gallery slider" class="gallery-slide--item" src="<?php echo FRONTEND_ASSET .'/images/h1-slide-2.jpg'?>" />
+                  <img alt="gallery slider" class="gallery-slide--item" src="<?php echo FRONTEND_ASSET .'/images/h1-slide-3.jpg'?>" />
                 </div>
                 <div class="tabs inner nav-pos-hor-center nav-pos-ver-bottom nav-dir-horizontal">
                   <div class="tab-mask tabs-wrap" style="max-width: 1395px; overflow: hidden; position: relative;">
@@ -234,8 +234,7 @@
                               <div class="shortcode image-with-text layout--text-over">
                                 <div class="m-image">
                                   <img width="1100" height="743" src="<?php echo FRONTEND_ASSET .'images/h1-img-1.jpg' ?>"
-                                    class="attachment-full size-full" alt="d"
-                                    sizes="(max-width: 1100px) 100vw, 1100px">
+                                    class="attachment-full size-full" alt="d" >
                                 </div>
                                 <div class="m-title-holder">
                                   <h2 class="m-title" style="color: #2b2824">

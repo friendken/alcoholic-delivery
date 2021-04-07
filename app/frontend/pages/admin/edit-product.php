@@ -25,7 +25,7 @@
             <div class="mb-3">
               <label for="category" class="form-label">Category</label>
               <select name="category_id" id="category" class="form-select" aria-label="select category product" required>
-                <option disabled selected>Product category</option>
+                <option disabled value="">Product category</option>
                 <?php foreach($category->list() as $item): ?>
                   <option <?php if ($product->category_id == $item->id) echo "selected"; ?> value="<?php echo $item->id; ?>"><?php echo $item->name; ?></option>
                 <?php endforeach; ?>

@@ -14,7 +14,7 @@
 				</div>
 					<div class="card-body">
 							<div class="table-responsive">
-									<table class="table table-bordered" id="product-table" width="100%" cellspacing="0">
+									<table class="table table-bordered" id="product-table">
 											<thead>
 													<tr>
 															<th>Name</th>

@@ -4,8 +4,7 @@
   <div class="w-product-inner">
     <div class="w-product-image">
       <img width="800" height="1406"
-        src="<?php echo FRONTEND_BASE . explode(',', $item->images)[0]; ?>" class="attachment-full size-full w-post-image" alt="i"
-        sizes="(max-width: 800px) 100vw, 800px">
+        src="<?php echo FRONTEND_BASE . explode(',', $item->images)[0]; ?>" class="attachment-full size-full w-post-image" alt="i" >
       <div class="w-product-image-inner">
         <div class="w-product-button-holder">
           <a href="#" data-quantity="1" class="button lnr-cart add_to_cart_button"
@@ -42,8 +41,8 @@
           class="category-separator"></span><a href="#" rel="tag">Italy</a><span
           class="category-separator"></span><a href="#" rel="tag">New</a>
       </div> -->
-      <h6 itemprop="name" class="w-product-title entry-title">
-        <a itemprop="url" class="w-product-title-link" href="#" title="Luctuson Chardonnayy">
+      <h6 class="w-product-title entry-title">
+        <a class="w-product-title-link" href="#" title="<?php echo $item->name ?>">
           <?php echo $item->name ?></a>
       </h6>
       <div class="w-product-price price">
