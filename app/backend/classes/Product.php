@@ -45,7 +45,6 @@ class Product
         if ($product_id)
         {
             $data = $this->_db->get('product', array('id', '=', $product_id));
-
             if ($data->count())
             {
                 return $data->first();

@@ -132,10 +132,11 @@
         <div class="widget dropdown_cart icon-hover" data-area="custom-widget">
           <div class="dropdown-cart dropdown-cart--m">
             <div class="dropdown-cart-inner dropdown-cart-inner--m">
-              <a class="cart-opener" href="#">
+              <a class="cart-opener" href="cart.php">
                 <span class="opener-icon">
                   <span class="lnr lnr-cart"></span>
-                  <span class="opener-count">0</span>
+                  <span class="opener-count"><?php echo $num_items_in_cart; ?></span>
+                  <input type="hidden" id="num_product_in_cart" value="<?php echo $num_items_in_cart; ?>" />
                 </span>
               </a>
               <!-- <div class="qodef-m-dropdown">

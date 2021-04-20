@@ -7,9 +7,16 @@
         class="attachment-full size-full w-post-image" alt="i" >
       <div class="w-product-image-inner">
         <div class="w-product-button-holder">
-          <a href="#" data-quantity="1" class="button lnr-cart add_to_cart_button"
-            aria-label="Add “Luctuson Chardonnayy” to your cart" rel="nofollow">Add to
-            cart</a>
+          <a
+            href="#"
+            data-quantity="1"
+            data-productId="<?php echo $item->id; ?>"
+            class="button lnr-cart add_to_cart_button"
+            aria-label="Add “Luctuson Chardonnayy” to your cart"
+            rel="nofollow"
+          >
+              Add to cart
+          </a>
           <div class="w-product-wishlist-holder">
             <div class="add-to-wishlist add-to-wishlist">
               <div class="add-button show" style="display:block">
@@ -22,11 +29,6 @@
                 <a href="#" rel="nofollow">
                   Browse Wishlist </a>
               </div>
-              <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                <span class="feedback">The product is already in the wishlist!</span>
-                <a href="#" rel="nofollow">
-                  Browse Wishlist </a>
-              </div>
               <div style="clear:both"></div>
               <div class="yith-wcwl-wishlistaddresponse"></div>
             </div>
@@ -36,11 +38,6 @@
       </div>
     </div>
     <div class="w-product-content">
-      <!-- <div class="w-product-tags"><a href="#" rel="tag">Brandy</a><span
-          class="category-separator"></span><a href="#" rel="tag">Drink</a><span
-          class="category-separator"></span><a href="#" rel="tag">Italy</a><span
-          class="category-separator"></span><a href="#" rel="tag">New</a>
-      </div> -->
       <h6 class="w-product-title entry-title">
         <a class="w-product-title-link" href="#" title="<?php echo $item->name; ?>">
           <?php echo $item->name; ?>

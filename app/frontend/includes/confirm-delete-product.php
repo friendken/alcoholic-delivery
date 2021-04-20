@@ -11,6 +11,7 @@
       <div class="modal-footer">
         <form id="form-delete-product" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <input id="product_id" type="hidden" name="product_id" value="" />
+          <input type="hidden" name="delete_product" value="1" />
           <button type="button" class="btn btn-secondary close-confirm-delete-product" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Yes</button>
         </form>

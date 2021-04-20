@@ -38,7 +38,7 @@
               <a class="cart-opener" href="#" style="color: rgb(0, 0, 0);">
                 <span class="opener-icon">
                   <span class="lnr lnr-cart"></span>
-                  <span class="opener-count">0</span>
+                  <span class="opener-count"><?php echo $num_items_in_cart; ?></span>
                 </span>
               </a>
             </div>
