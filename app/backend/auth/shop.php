@@ -4,6 +4,8 @@ require_once dirname(dirname(__FILE__)).'/core/Input.php';
 
 $products = new Product();
 $page = $_GET['page'];
+
+if (!isset($page)) Redirect::to('shop.php?page=1');
 $page_limit = 6;
 $product_list = $products->pagination(($page - 1) * $page_limit, $page_limit);
 

@@ -32,4 +32,34 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
   }
 }
 
+// remove product from cart
+if (isset($_POST['remove']) && is_numeric($_POST['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_POST['remove']])) {
+    // Remove the product from the shopping cart
+    try {
+        unset($_SESSION['cart'][$_POST['remove']]);
+        echo 'success';
+    } catch (Exception $e) {
+        echo 'error';
+    }
+}
+
+
+if (isset($_POST['update']) && isset($_SESSION['cart'])) {
+    // Loop through the post data so we can update the quantities for every product in cart
+    foreach ($_POST as $k => $v) {
+        if (strpos($k, 'quantity') !== false && is_numeric($v)) {
+            $id = str_replace('quantity-', '', $k);
+            $quantity = (int)$v;
+            // Always do checks and validation
+            if (is_numeric($id) && isset($_SESSION['cart'][$id]) && $quantity > 0) {
+                // Update new quantity
+                $_SESSION['cart'][$id] = $quantity;
+            }
+        }
+    }
+    // Prevent form resubmission...
+    header('location: cart.php');
+    exit;
+}
+
 ?>

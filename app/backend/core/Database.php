@@ -7,7 +7,8 @@ class Database
             $_query,
             $_error = false,
             $_results,
-            $_count = 0;
+            $_count = 0,
+            $_lastInsertId;
 
     private function __construct()
     {
@@ -56,9 +57,11 @@ class Database
             {
                 $this->_results     = $this->_query->fetchAll(PDO::FETCH_OBJ);
                 $this->_count       = $this->_query->rowCount();
+                $this->_lastInsertId = $this->_pdo->lastInsertId();
             }
             else
             {
+                // echo '<pre>', var_dump($this->_query->errorInfo()), '</pre>';
                 $this->_error = true;
             }
         }
@@ -112,6 +115,16 @@ class Database
         }
         $sql = "SELECT * FROM {$table} LIMIT {$page},{$offset}";
         
+        if (!$this->query($sql)->error())
+        {
+            return $this;
+        }
+    }
+
+    public function getDataByIds($table, $ids)
+    {   
+        $array_to_question_marks = implode(',', array_keys($ids));
+        $sql = "SELECT * FROM {$table} WHERE id IN ({$array_to_question_marks})";
         if (!$this->query($sql)->error())
         {
             return $this;
@@ -179,6 +192,11 @@ class Database
         }
 
         return false;
+    }
+
+    public function getLastInsertId ()
+    {
+        return $this->_lastInsertId;
     }
 
     public function results()

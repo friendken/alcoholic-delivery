@@ -52,6 +52,11 @@ class Product
         }
     }
 
+    public function getProductByIds ($products)
+    {
+        return $this->_db->getDataByIds('product', $products)->results();
+    }
+
     public function data()
     {
         return $this->_data;

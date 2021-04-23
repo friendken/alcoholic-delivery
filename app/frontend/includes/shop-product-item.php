@@ -7,9 +7,15 @@
         src="<?php echo FRONTEND_BASE . explode(',', $item->images)[0]; ?>" class="attachment-full size-full w-post-image" alt="i" >
       <div class="w-product-image-inner">
         <div class="w-product-button-holder">
-          <a href="#" data-quantity="1" class="button lnr-cart add_to_cart_button"
-            aria-label="Add “Luctuson Chardonnayy” to your cart" rel="nofollow">Add to
-            cart</a>
+          <a
+            href="#"
+            class="button lnr-cart add_to_cart_button"
+            aria-label="Add “Luctuson Chardonnayy” to your cart" rel="nofollow"
+            data-productId="<?php echo $item->id; ?>"
+            data-quantity="1"
+          >
+            Add to cart
+          </a>
           <div class="w-product-wishlist-holder">
             <div class="add-to-wishlist add-to-wishlist">
               <div class="add-button show" style="display:block">
@@ -36,11 +42,6 @@
       </div>
     </div>
     <div class="w-product-content">
-      <!-- <div class="w-product-tags"><a href="#" rel="tag">Brandy</a><span
-          class="category-separator"></span><a href="#" rel="tag">Drink</a><span
-          class="category-separator"></span><a href="#" rel="tag">Italy</a><span
-          class="category-separator"></span><a href="#" rel="tag">New</a>
-      </div> -->
       <h6 class="w-product-title entry-title">
         <a class="w-product-title-link" href="#" title="<?php echo $item->name ?>">
           <?php echo $item->name ?></a>

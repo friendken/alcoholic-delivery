@@ -63,6 +63,3 @@ if (Input::exists('POST'))
         $errors = $validate->errors();
     }
   }
-
-
-// var_dump($errors);

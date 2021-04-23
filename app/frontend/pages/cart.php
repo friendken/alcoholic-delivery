@@ -1,75 +1,5 @@
 <div class="main-page header-standard--right">
-	<header class="header-page">
-		<div id="header-page-inner">
-			<a class="header-logo-link" href="#" rel="home">
-				<img
-					width="80"
-					height="80"
-					src="<?php echo FRONTEND_ASSET .'/images/logo-color.png' ?>"
-					class="header-logo-image"
-					alt="logo main"
-				/>
-			</a>
-			<nav class="header-navigation" role="navigation" aria-label="Top Menu">
-				<ul id="main-navigation-menu" class="menu">
-					<li
-						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-276 hide-link menu-item--narrow"
-					>
-						<a href="index.php"
-							><span class="menu-item-inner"
-								><span class="menu-item-text">Home</span></span
-							></a
-						><span class="menu-arrow"></span>
-					</li>
-					<li
-						class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-277 hide-link menu-item--narrow"
-					>
-						<a href="#"
-							><span class="menu-item-inner"
-								><span class="menu-item-text">Shop</span></span
-							></a
-						><span class="menu-arrow"></span>
-					</li>
-					<li
-						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-279 hide-link menu-item--narrow"
-					>
-						<a href="contact.php"
-							><span class="menu-item-inner"
-								><span class="menu-item-text">Contact</span></span
-							></a
-						><span class="menu-arrow"></span>
-					</li>
-				</ul>
-			</nav>
-			<div class="widget-holder">
-				<div id="wishlist" class="widget header-left-icon">
-					<a href="#" target="_self">
-						<span
-							class="qodef-search-opener-inner wishlist-icon"
-							style="color: rgb(0, 0, 0)"
-						>
-							<span class="lnr lnr-heart"></span>
-						</span>
-					</a>
-				</div>
-				<div
-					class="widget dropdown_cart header-left-icon"
-					data-area="custom-widget"
-				>
-					<div class="dropdown-cart dropdown-cart--m">
-						<div class="dropdown-cart-inner dropdown-cart-inner--m">
-							<a class="cart-opener" href="#" style="color: rgb(0, 0, 0)">
-								<span class="opener-icon">
-									<span class="lnr lnr-cart"></span>
-									<span class="opener-count"><?php echo $num_items_in_cart; ?></span>
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	<?php require_once FRONTEND_INCLUDE . 'header-shop.php' ?>
 	<div class="page-outer products-page-outer">
 		<div class="page-title title--standard-with-breadcrumbs has-image">
 			<div class="m-inner">
@@ -90,12 +20,15 @@
 			>
 				<div class="page-grid-inner clear">
 					<div class="grid-item page-content-section grid-col--12">
+						<?php if (count($fetched_products_in_cart) == 0): ?>
+							<?php require_once FRONTEND_INCLUDE . 'empty-cart.php' ?>
+						<?php else: ?>
 						<div class="cart-content">
 							<div id="cart-page" class="cart">
 								<div class="cart-notices-wrapper"></div>
 								<form
 									class="cart-form"
-									action="https://aperitif.qodeinteractive.com/cart/"
+									action="cart-handler.php"
 									method="post"
 								>
 									<table
@@ -113,154 +46,65 @@
 											</tr>
 										</thead>
 										<tbody>
+											<?php foreach($fetched_products_in_cart as $item): ?>
 											<tr class="cart-form__cart-item cart_item">
 												<td class="product-remove">
 													<a
-														href="https://aperitif.qodeinteractive.com/cart/?remove_item=68b1fbe7f16e4ae3024973f12f3cb313&amp;_wpnonce=a17a7886b6"
-														class="remove"
+														href="#"
+														class="remove remove-product-in-cart"
 														aria-label="Remove this item"
-														data-product_id="1093"
-														data-product_sku="02"
+														data-productId="<?php echo $item->id; ?>"
 														>×</a
 													>
 												</td>
 
 												<td class="product-thumbnail">
 													<a
-														href="https://aperitif.qodeinteractive.com/product/new-cabernet-sauvignon/"
+														href="#"
 														><img
 															width="400"
 															height="703"
-															src="https://aperitif.qodeinteractive.com/wp-content/uploads/2019/09/h1-product-2-400x703.jpg"
-															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+															src="<?php echo FRONTEND_BASE . explode(',', $item->images)[0]; ?>"
+															class="attachment-thumbnail size-thumbnail"
 															alt="m"
 													/></a>
 												</td>
 
 												<td class="product-name" data-title="Product">
-													<a
-														href="https://aperitif.qodeinteractive.com/product/new-cabernet-sauvignon/"
-														>New Cabernet Sauvignon</a
-													>
+													<a href="#" >New Cabernet Sauvignon</a>
 												</td>
 
 												<td class="product-price" data-title="Price">
-													<span class="price-amount amount"
-														>67<span class="price-currencySymbol"
-															>$</span
-														></span
-													>
+													<span class="price-amount amount">
+														<span class="price-currencySymbol"><?php echo $item->currency; ?></span>
+														<?php echo $item->price ?>
+													</span>
 												</td>
 
 												<td class="product-quantity" data-title="Quantity">
 													<div class="quantity-buttons quantity">
-														<label
-															class="screen-reader-text"
-															>New Cabernet Sauvignon quantity</label
-														>
-														<span
-															class="quantity-minus icon-arrows-left icon"
-														></span>
+														<label class="screen-reader-text"><?php echo $products_in_cart[$item->id] ?></label>
 														<input
 															type="text"
 															class="input-text qty text quantity-input"
-															data-step="1"
-															data-min="0"
-															data-max=""
-															value="1"
+															value="<?php echo $products_in_cart[$item->id] ?>"
 															title="Qty"
 															size="4"
+															name="quantity-<?php echo $item->id ?>"
 															inputmode="numeric"
 														/>
-														<span
-															class="quantity-plus icon-arrows-right icon"
-														></span>
 													</div>
 												</td>
 
 												<td class="product-subtotal" data-title="Subtotal">
-													<span class="price-amount amount"
-														>67<span class="price-currencySymbol"
-															>$</span
-														></span
-													>
+													<span class="price-amount amount">
+														<span class="price-currencySymbol"><?php echo $item->currency ?></span>
+														<?php echo (int)$products_in_cart[$item->id] * $item->price; ?>
+													</span>
+													<input type="hidden" class="product-subtotal-price" value="<?php echo (int)$products_in_cart[$item->id] * $item->price; ?>" />
 												</td>
 											</tr>
-											<tr class="cart-form__cart-item cart_item">
-												<td class="product-remove">
-													<a
-														href="https://aperitif.qodeinteractive.com/cart/?remove_item=7f975a56c761db6506eca0b37ce6ec87&amp;_wpnonce=a17a7886b6"
-														class="remove"
-														aria-label="Remove this item"
-														data-product_id="1011"
-														data-product_sku="01"
-														>×</a
-													>
-												</td>
-
-												<td class="product-thumbnail">
-													<a
-														href="https://aperitif.qodeinteractive.com/product/luctuson-chardonnayy/"
-														><img
-															width="400"
-															height="703"
-															src="https://aperitif.qodeinteractive.com/wp-content/uploads/2019/09/h1-product-13-400x703.jpg"
-															class="attachment-thumbnail size-thumbnail"
-															alt="i"
-													/></a>
-												</td>
-
-												<td class="product-name" data-title="Product">
-													<a
-														href="https://aperitif.qodeinteractive.com/product/luctuson-chardonnayy/"
-														>Luctuson Chardonnayy</a
-													>
-												</td>
-
-												<td class="product-price" data-title="Price">
-													<span class="price-amount amount"
-														>65<span class="price-currencySymbol"
-															>$</span
-														></span
-													>
-												</td>
-
-												<td class="product-quantity" data-title="Quantity">
-													<div class="quantity-buttons quantity">
-														<label
-															class="screen-reader-text"
-															>Luctuson Chardonnayy quantity</label
-														>
-														<span
-															class="quantity-minus icon-arrows-left icon"
-														></span>
-														<input
-															type="text"
-															class="input-text qty text quantity-input"
-															data-step="1"
-															data-min="0"
-															data-max=""
-															name="cart[7f975a56c761db6506eca0b37ce6ec87][qty]"
-															value="1"
-															title="Qty"
-															size="4"
-															inputmode="numeric"
-														/>
-														<span
-															class="quantity-plus icon-arrows-right icon"
-														></span>
-													</div>
-												</td>
-
-												<td class="product-subtotal" data-title="Subtotal">
-													<span class="price-amount amount"
-														>65<span class="price-currencySymbol"
-															>$</span
-														></span
-													>
-												</td>
-											</tr>
-
+											<?php endforeach;?>
 											<tr>
 												<td colspan="6" class="actions">
 													<div class="coupon">
@@ -286,7 +130,7 @@
 													<button
 														type="submit"
 														class="button"
-														name="update_cart"
+														name="update"
 														value="Update cart"
 													>
 														Update cart
@@ -315,25 +159,23 @@
 												<tr class="cart-subtotal">
 													<th>Subtotal</th>
 													<td data-title="Subtotal">
-														<span class="price-amount amount"
-															>132<span class="price-currencySymbol"
-																>$</span
-															></span
-														>
+														<span class="price-amount amount">
+															<span class="price-currencySymbol">£</span>
+															<span class="product-subtotal-display"><?php echo $subtotal; ?></span>
+														</span>
+														<input type="hidden" class="subtotal-order" value="<?php echo $subtotal; ?>" />
 													</td>
 												</tr>
 
 												<tr class="order-total">
 													<th>Total</th>
 													<td data-title="Total">
-														<strong
-															><span class="price-amount amount"
-																>132<span
-																	class="price-currencySymbol"
-																	>$</span
-																></span
-															></strong
-														>
+														<strong>
+															<span class="price-amount amount">
+																<span class="price-currencySymbol">£</span>
+																<span class="product-subtotal-display"><?php echo $subtotal; ?></span>
+															</span>
+														</strong>
 													</td>
 												</tr>
 											</tbody>
@@ -341,7 +183,7 @@
 
 										<div class="proceed-to-checkout">
 											<a
-												href="https://aperitif.qodeinteractive.com/checkout/"
+												href="checkout.php"
 												class="checkout-button button alt wc-forward"
 											>
 												Proceed to checkout</a
@@ -351,6 +193,7 @@
 								</div>
 							</div>
 						</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</main>

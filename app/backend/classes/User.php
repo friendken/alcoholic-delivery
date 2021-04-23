@@ -21,7 +21,6 @@ class User
             if (Session::exists($this->_sessionName))
             {
                 $user = Session::get($this->_sessionName);
-                // var_dump($user); die('here');
 
                 if ($this->get($user))
                 {
@@ -41,7 +40,6 @@ class User
         if ($user)
         {
             $data = $this->_db->get('user', array('email', '=', $user));
-            // var_dump($data->results()); die;
             if ($data->count())
             {
                 $this->_data = $data->first();
@@ -103,7 +101,6 @@ class User
             $user = $this->find($email);
             if ($user)
             {
-                // var_dump($user); die('here');
                 if (Password::check($password, $this->data()->password))
                 {
                     Session::put($this->_sessionName, $this->data()->id);

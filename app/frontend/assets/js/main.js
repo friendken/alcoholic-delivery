@@ -23,6 +23,11 @@ $(document).ready(function(){
     event.preventDefault()
     addProductToCart(event);
   })
+
+  $('.remove-product-in-cart').on('click', (event) => {
+    event.preventDefault()
+    removeProductInCart(event);
+  })
 });
 
 const convertObjectToStringParams = (data) => {
@@ -68,6 +73,34 @@ const addProductToCart = (event) => {
         $('#num_product_in_cart').val(numProductInCart + 1)
         $('.opener-count').text(numProductInCart + 1)
       }
+    }
+  })
+}
+
+const removeProductInCart = (event) => {
+  const el = $(event.currentTarget);
+  const payload = {
+    remove: parseInt(el.attr('data-productId')),
+  }
+  
+  httpRequest({
+    method: 'POST',
+    url: 'cart-handler.php',
+    payload: convertObjectToStringParams(payload)
+  }, (response) => {
+    if (response === 'success') {
+      const numProductInCart = parseInt($('#num_product_in_cart').val());
+      // update the number of product in cart
+      $('#num_product_in_cart').val(numProductInCart - 1)
+      $('.opener-count').text(numProductInCart - 1)
+
+      // update the subtotal and total
+      const productSubTotal = parseInt(el.parents('.cart_item').find('.product-subtotal-price').val());
+      const newSubtotal = parseInt($('.subtotal-order').val()) - productSubTotal;
+      $('.subtotal-order').val(newSubtotal);
+      $('.product-subtotal-display').text(newSubtotal);
+
+      el.parents('.cart_item').remove(); // remove the product from the product list
     }
   })
 }
